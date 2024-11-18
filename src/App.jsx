@@ -1,9 +1,23 @@
+import Box from "./components/Box"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+
 function App() {
 
   return (
     <>
-      <main>
-        <h1 className="bg-red-300">Hello World</h1>
+      <main className="h-screen">
+        <header>
+          <Header/>
+        </header>
+
+        <section>
+          <Box/>
+        </section>
+
+        <footer className="bottom-[0] w-full h-10 absolute">
+          <Footer/>
+        </footer>
       </main>
     </>
   )
