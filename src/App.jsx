@@ -1,21 +1,24 @@
-import Box from "./components/Box"
-import Footer from "./components/Footer"
-import Header from "./components/Header"
+import Box from "./components/pribadi/Box"
+import Footer from "./components/pribadi/Footer"
+import Header from "./components/pribadi/Header"
+import { Button } from "./components/ui/button"
+import { Separator } from "./components/ui/separator"
 
 function App() {
 
   return (
     <>
       <main className="h-screen">
-        <header>
+        <header className="h-[6vh] border-b-4">
           <Header/>
         </header>
 
-        <section>
+        <section className="h-[88vh]">
+          <Button variant="default" size="lg">Button</Button>
           <Box/>
         </section>
 
-        <footer className="bottom-[0] w-full h-10 absolute">
+        <footer className="h-[6vh] border-t-4 flex items-center justify-between font-bold px-10">
           <Footer/>
         </footer>
       </main>
