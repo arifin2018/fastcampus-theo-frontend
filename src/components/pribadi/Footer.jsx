@@ -4,7 +4,9 @@ const Footer = () => {
     return (
         <>
             <p>My Custom Footer</p>
-            <ContactMeButton/>
+            <ContactMeButton>
+                Contact me
+            </ContactMeButton>
         </>
     )
 }
