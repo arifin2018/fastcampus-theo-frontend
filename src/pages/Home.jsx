@@ -1,6 +1,3 @@
-// import Footer from "./components/pribadi/Footer"
-import Footer from "@/components/pribadi/Footer"
-import Header from "@/components/pribadi/Header"
 import ProductCard from "@/components/pribadi/ProductCard"
 
 const productRaw = [
@@ -27,9 +24,6 @@ const Home = () =>{
     
     return (
         <>
-            <header className="h-14 border-b-4">
-            <Header/>
-            </header>
 
             <main>
             <section className="max-w-full max-auto p-4 pt-8 h-full">
@@ -48,9 +42,7 @@ const Home = () =>{
 
             </main>
 
-            <footer className="h-14 border-t-4 flex items-center justify-between font-bold px-10 mt-10">
-                <Footer/>
-            </footer>
+            
         </>
     )
 }
