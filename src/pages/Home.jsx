@@ -24,25 +24,15 @@ const Home = () =>{
     
     return (
         <>
-
-            <main>
-            <section className="max-w-full max-auto p-4 pt-8 h-full">
-                <div className="max-auto flex flex-col items-center justify-self-center text-center max-w-3xl">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    Become a trend-setter with us
-                </h1>
-                <p className="pt-6 text-lg max-w-prose text-muted-foreground">
-                    FastCampusCommerce Provides you with the finest clothings and ensures your confidence throughout your days.
-                </p>
-                <div className="grid grid-cols-2 gap-4 h-full">
-                    {product}
-                </div>
-                </div>
-            </section>
-
-            </main>
-
-            
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                Become a trend-setter with us
+            </h1>
+            <p className="pt-6 text-lg max-w-prose text-muted-foreground">
+                FastCampusCommerce Provides you with the finest clothings and ensures your confidence throughout your days.
+            </p>
+            <div className="grid grid-cols-2 gap-4 h-full">
+                {product}
+            </div>
         </>
     )
 }
