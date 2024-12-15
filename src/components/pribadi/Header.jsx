@@ -2,13 +2,16 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { IoCart,IoHeart } from "react-icons/io5";
 import { Separator } from "../ui/separator";
+import { Link } from "react-router";
 
 
 const Header = () => {
     return (
         <>
             <div className="flex justify-between px-6 py-2 items-center">
-                <p className="text-2xl font-bold hover:cursor-pointer">FastCampusCommerce</p>
+                <Link to="home">
+                    <p className="text-2xl font-bold hover:cursor-pointer">FastCampusCommerce</p>
+                </Link>
                 <Input placeholder="search anything..." className="max-w-[600px]"/>
                 <div className="flex space-x-4">
                     <div className="flex flex-x-2">
@@ -21,7 +24,12 @@ const Header = () => {
                     </div>
                     <Separator orientation="vertical" className="h-10"/>
 
-                    <Button>Log in</Button>
+                    
+                    <Link to="login">
+                        <Button>
+                            Log in
+                        </Button>
+                    </Link>
                     <Button variant="outline">Sign Up</Button>
                 </div>
             </div>

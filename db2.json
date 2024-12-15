@@ -1,0 +1,19 @@
+{
+    "product":[
+        {
+            "id":"1",
+            "name": "T-Shirt",
+            "price": 100000,
+            "stock": 10,
+            "ImageUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qukx-ljl41ov0wv6g1f@resize_w450_nl.webp"
+        },
+        {
+            "id":"2",
+            "name": "T-Shirt2",
+            "price": 1002000,
+            "stock": 10,
+            "ImageUrl": "https://down-id.img.susercontent.com/file/id-11134207-7qukx-ljl41ov0wv6g1f@resize_w450_nl.webp"
+        }
+    ],
+    "users":["a","b","c"]
+}

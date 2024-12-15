@@ -4,7 +4,8 @@ import Header from "@/components/pribadi/Header"
 import Home from "@/pages/Home"
 import Login from "@/pages/Login"
 import NotFound from "@/pages/NotFound"
-import { BrowserRouter, Routes, Route } from "react-router";
+import ProductDetailPage from "@/pages/ProductDetailPage"
+import { BrowserRouter, Routes, Route} from "react-router";
 
 const router = () =>{
     return(
@@ -18,6 +19,7 @@ const router = () =>{
                         <Routes>
                             <Route path="/" element={<App />} />
                             <Route path="/home" element={<Home />} />
+                            <Route path="/Product/:id" state="../../db.json" element={<ProductDetailPage />}  />
                             <Route path="/login" element={<Login />} />
                             <Route path="*" element={<NotFound />} />
                         </Routes>

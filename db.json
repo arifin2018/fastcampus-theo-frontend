@@ -1,0 +1,148 @@
+{
+    "product": [
+        {
+            "id": "1",
+            "name": "T-Shirt",
+            "price": 100000,
+            "stock": 10,
+            "ImageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=T-Shirt"
+        },
+        {
+            "id": "2",
+            "name": "Hoodie",
+            "price": 200000,
+            "stock": 8,
+            "ImageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Hoodie"
+        },
+        {
+            "id": "3",
+            "name": "Jacket",
+            "price": 500000,
+            "stock": 5,
+            "ImageUrl": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Jacket"
+        },
+        {
+            "id": "4",
+            "name": "Cap",
+            "price": 50000,
+            "stock": 15,
+            "ImageUrl": "https://via.placeholder.com/150/FFFF00/FFFFFF?text=Cap"
+        },
+        {
+            "id": "5",
+            "name": "Jeans",
+            "price": 250000,
+            "stock": 12,
+            "ImageUrl": "https://via.placeholder.com/150/FF00FF/FFFFFF?text=Jeans"
+        },
+        {
+            "id": "6",
+            "name": "Sneakers",
+            "price": 400000,
+            "stock": 7,
+            "ImageUrl": "https://via.placeholder.com/150/00FFFF/FFFFFF?text=Sneakers"
+        },
+        {
+            "id": "7",
+            "name": "Socks",
+            "price": 25000,
+            "stock": 25,
+            "ImageUrl": "https://via.placeholder.com/150/FFA500/FFFFFF?text=Socks"
+        },
+        {
+            "id": "8",
+            "name": "Shorts",
+            "price": 120000,
+            "stock": 10,
+            "ImageUrl": "https://via.placeholder.com/150/800080/FFFFFF?text=Shorts"
+        },
+        {
+            "id": "9",
+            "name": "Dress",
+            "price": 300000,
+            "stock": 6,
+            "ImageUrl": "https://via.placeholder.com/150/008000/FFFFFF?text=Dress"
+        },
+        {
+            "id": "10",
+            "name": "Blouse",
+            "price": 150000,
+            "stock": 9,
+            "ImageUrl": "https://via.placeholder.com/150/FFC0CB/FFFFFF?text=Blouse"
+        },
+        {
+            "id": "11",
+            "name": "Sweater",
+            "price": 220000,
+            "stock": 11,
+            "ImageUrl": "https://via.placeholder.com/150/800000/FFFFFF?text=Sweater"
+        },
+        {
+            "id": "12",
+            "name": "Backpack",
+            "price": 350000,
+            "stock": 8,
+            "ImageUrl": "https://via.placeholder.com/150/808080/FFFFFF?text=Backpack"
+        },
+        {
+            "id": "13",
+            "name": "Gloves",
+            "price": 80000,
+            "stock": 18,
+            "ImageUrl": "https://via.placeholder.com/150/000000/FFFFFF?text=Gloves"
+        },
+        {
+            "id": "14",
+            "name": "Belt",
+            "price": 90000,
+            "stock": 14,
+            "ImageUrl": "https://via.placeholder.com/150/FFFFFF/000000?text=Belt"
+        },
+        {
+            "id": "15",
+            "name": "Sunglasses",
+            "price": 175000,
+            "stock": 10,
+            "ImageUrl": "https://via.placeholder.com/150/A52A2A/FFFFFF?text=Sunglasses"
+        },
+        {
+            "id": "16",
+            "name": "Watch",
+            "price": 600000,
+            "stock": 4,
+            "ImageUrl": "https://via.placeholder.com/150/4682B4/FFFFFF?text=Watch"
+        },
+        {
+            "id": "17",
+            "name": "Scarf",
+            "price": 120000,
+            "stock": 20,
+            "ImageUrl": "https://via.placeholder.com/150/D2691E/FFFFFF?text=Scarf"
+        },
+        {
+            "id": "18",
+            "name": "Hat",
+            "price": 70000,
+            "stock": 15,
+            "ImageUrl": "https://via.placeholder.com/150/DAA520/FFFFFF?text=Hat"
+        },
+        {
+            "id": "19",
+            "name": "Sandals",
+            "price": 100000,
+            "stock": 13,
+            "ImageUrl": "https://via.placeholder.com/150/2E8B57/FFFFFF?text=Sandals"
+        },
+        {
+            "id": "20",
+            "name": "Wallet",
+            "price": 250000,
+            "stock": 7,
+            "ImageUrl": "https://via.placeholder.com/150/FFD700/FFFFFF?text=Wallet"
+        }
+    ],
+    "comments": [
+        { "id": "1", "text": "a comment about post 1", "postId": "1" },
+        { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    ]
+}
