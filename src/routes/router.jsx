@@ -1,6 +1,7 @@
 import App from "@/App"
 import Footer from "@/components/pribadi/Footer"
 import Header from "@/components/pribadi/Header"
+import ProductManagementPage from "@/pages/admin/ProductManagmentPage"
 import Home from "@/pages/Home"
 import Login from "@/pages/Login"
 import NotFound from "@/pages/NotFound"
@@ -21,6 +22,8 @@ const router = () =>{
                             <Route path="/home" element={<Home />} />
                             <Route path="/Product/:id" state="../../db.json" element={<ProductDetailPage />}  />
                             <Route path="/login" element={<Login />} />
+
+                            <Route path="/admin/products" element={<ProductManagementPage />}/>
                             <Route path="*" element={<NotFound />} />
                         </Routes>
                     </div>
