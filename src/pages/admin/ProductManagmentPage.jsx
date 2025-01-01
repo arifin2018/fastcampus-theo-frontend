@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/pagination"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Link } from "react-router";
 
 
 
@@ -128,10 +129,12 @@ const ProductManagementPage = () =>{
                 namePageLayout="Product Management Page"
                 sectionNamePageLayout="Manage our store&apos;s product"
                 buttonPageLayout={
-                <Button>
-                    <IoAdd className="h-6 w-6 mr-2"></IoAdd>
-                    Add Product
-                </Button>}
+                <Link to="/admin/create/products">
+                    <Button>
+                        <IoAdd className="h-6 w-6 mr-2"></IoAdd>
+                        Add Product
+                    </Button>
+                </Link>}
             >
             <div>
 

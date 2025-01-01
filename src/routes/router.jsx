@@ -2,6 +2,7 @@ import App from "@/App";
 import WrapperHome from "@/components/layouts/wraps/wrapperHome";
 import Footer from "@/components/pribadi/Footer";
 import Header from "@/components/pribadi/Header";
+import CreateProductPage from "@/pages/admin/CreateProductPage";
 import ProductManagementPage from "@/pages/admin/ProductManagmentPage";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
@@ -69,7 +70,11 @@ const Layout = () => {
                 </WrapperHome>
               }
             />
-            <Route path="/admin/products" element={<ProductManagementPage />} />
+
+            <Route path="/admin">
+              <Route path="products" element={<ProductManagementPage />} />
+              <Route path="create/products" element={<CreateProductPage />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </section>

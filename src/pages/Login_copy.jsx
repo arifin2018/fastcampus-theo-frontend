@@ -13,8 +13,6 @@ const login = () =>{
     const [CheckboxShowPassword, setCheckboxShowPassword] = useState(false)
 
     function handleLogin() {
-        console.log("arifin");
-        
         const usernameIsValid = Username.length >= 3;
         const passwordIsValid = Password.length >= 8;
 
