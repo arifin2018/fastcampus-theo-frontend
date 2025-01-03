@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { axiosInstance } from "@/lib/axios";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const schema = z.object({
     name: z.string().min(3, { message: "Must be 3 or more characters long" }),
@@ -10,7 +13,13 @@ const schema = z.object({
     stock: z.number().min(1, { message: 'Required' }),
     product_image: z.string().url({ message: "Invalid url" })
 });
+
+
+
 function CreateProductPage(){
+    let navigate = useNavigate();
+    const [loading,setLoading] = useState(false)
+
     const {
         register,
         handleSubmit,
@@ -25,7 +34,22 @@ function CreateProductPage(){
         },
     });
 
-    const onSubmit = (data) => {console.log(data)}
+    const onSubmit = async (data) => {
+        setLoading(true)
+        try {
+            await axiosInstance.post("/product",{
+                name:data.name,
+                price:data.price,
+                stock:data.stock,
+                ImageUrl:data.product_image
+            })
+        } catch (error) {
+            console.log(error);
+        } finally{
+            setLoading(false)
+            navigate("/admin/products");
+        }
+    }
 
     return (
         <AdminLayout>
@@ -67,11 +91,8 @@ function CreateProductPage(){
                                     </span>
                                     <span className="text-gray-500">Please use image valid a url</span>
                                 </div>
-                                <button type="submit" className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">Submit</button>
+                                <button disabled={loading} type="submit" className={`bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded disabled:bg-gray-300`}>Submit add new product</button>
                             </div>
-                            {/* <input type="number" {...register('age', { valueAsNumber: true })} className="border-2 border-zinc-600"/>
-                            {errors.age?.message && <p>{errors.age?.message}</p>} 
-                            <input type="submit" />*/}
                         </form>
                     </CardContent>
                     <CardFooter>

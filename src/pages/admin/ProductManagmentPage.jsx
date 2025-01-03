@@ -35,6 +35,7 @@ const ProductManagementPage = () =>{
     const [searchParams,setSearchParams] = useSearchParams()
     const [page,setPage] = useState(1)
     const [productSearch,setProductSearch] = useState('')
+    const [productSearchTemp,setProductSearchTemp] = useState('')
     const [numberPagination,setNumberPagination] = useState([1])
 
     function numberPages(number) {
@@ -42,11 +43,12 @@ const ProductManagementPage = () =>{
     }
 
     function handleSearchProduct() {
-        if (productSearch == "") {
-            searchParams.delete("name", productSearch)
+        setProductSearch(productSearchTemp)
+        if (productSearchTemp == "") {
+            searchParams.delete("name")
             setSearchParams(searchParams)
         }else{
-            searchParams.set("name", productSearch)
+            searchParams.set("name", productSearchTemp)
             setSearchParams(searchParams)
         }
         setPage(1)
@@ -141,7 +143,7 @@ const ProductManagementPage = () =>{
             <div className="mb-3">
                 <Label>SearchBar</Label>
                 <div className="flex">
-                    <Input className="w-1/4 h-8 mr-3" onChange={e => setProductSearch(e.target.value)} value={productSearch}></Input>
+                    <Input className="w-1/4 h-8 mr-3" onChange={e => setProductSearchTemp(e.target.value)} value={productSearchTemp}></Input>
                     <Button className="h-8" onClick={handleSearchProduct}>Search</Button>
                 </div>
             </div>
