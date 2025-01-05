@@ -16,7 +16,7 @@ const schema = z.object({
 
 
 
-function CreateProductPage(){
+function EditProductPage(){
     let navigate = useNavigate();
     const [loading,setLoading] = useState(false)
 
@@ -100,4 +100,4 @@ function CreateProductPage(){
     )
 }
 
-export default CreateProductPage
+export default EditProductPage

@@ -34,7 +34,7 @@ const AdminLayout = (props)=>{
                 </header>
 
                 <main className="flex flex-col p-4">
-                    <div className="flex justify-between items-center pb-4 border-b mb-8">
+                    <div className="flex justify-between items-center pb-4">
                         <div>
                             <h1 className="font-bold text-4xl">{namePageLayout}</h1>
                             <p className="text-muted-foreground">
