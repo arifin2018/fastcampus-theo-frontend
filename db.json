@@ -141,52 +141,17 @@
       "ImageUrl": "https://via.placeholder.com/150/FFD700/FFFFFF?text=Wallet"
     },
     {
-      "id": "0cd8",
+      "id": "51b5",
       "name": "arifin",
-      "price": 2,
-      "stock": 3,
+      "price": 20000,
+      "stock": 20000,
       "ImageUrl": "http://localhost:5173/admin/create/products"
     },
     {
-      "id": "733d",
-      "name": "arifin",
-      "price": 22,
-      "stock": 222,
-      "ImageUrl": "http://localhost:5173/admin/create/products"
-    },
-    {
-      "id": "9b13",
-      "name": "arifin",
-      "price": 22,
-      "stock": 222,
-      "ImageUrl": "http://localhost:5173/admin/create/products"
-    },
-    {
-      "id": "fc5c",
-      "name": "arifin",
-      "price": 22,
-      "stock": 222,
-      "ImageUrl": "http://localhost:5173/admin/create/products"
-    },
-    {
-      "id": "7751",
-      "name": "arifin2",
-      "price": 2222,
-      "stock": 222,
-      "ImageUrl": "http://localhost:5173/admin/create/products"
-    },
-    {
-      "id": "6e90",
+      "id": "a980",
       "name": "arifin23",
-      "price": 2222,
-      "stock": 222,
-      "ImageUrl": "http://localhost:5173/admin/create/products"
-    },
-    {
-      "id": "834b",
-      "name": "arifin",
-      "price": 22,
-      "stock": 31320,
+      "price": 20000,
+      "stock": 2000,
       "ImageUrl": "http://localhost:5173/admin/create/products"
     }
   ],
