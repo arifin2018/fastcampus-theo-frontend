@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/axios";
 import { useNavigate } from "react-router";
 
@@ -46,6 +46,19 @@ function ProductForm(props) {
             navigate(props.redirectNavigate);
         }
     }
+
+    const getDataFirstForUpdate = async () => {
+        try {
+            const response = await axiosInstance.get(props.urlGetDataUpdate)
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getDataFirstForUpdate()
+    },[]);
 
 
     return (

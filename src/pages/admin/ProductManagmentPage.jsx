@@ -1,6 +1,7 @@
 import AdminLayout from "@/components/layouts/adminLayout"
 import { Button } from "@/components/ui/button"
 import { IoAdd } from "react-icons/io5";
+import { IoPencil } from "react-icons/io5";
 import {
     Table,
     TableBody,
@@ -12,7 +13,6 @@ import {
 } from "@/components/ui/table"
 import { useEffect, useState } from "react";
 import { axiosInstance } from "@/lib/axios";
-import { IoEllipsisHorizontal } from "react-icons/io5";
 import { useSearchParams } from "react-router";
 import {
     Pagination,
@@ -166,9 +166,14 @@ const ProductManagementPage = () =>{
                                     <TableCell>{product.price}</TableCell>
                                     <TableCell>{product.stock}</TableCell>
                                     <TableCell>
-                                        <Button variant="ghost" size="icon">
-                                            <IoEllipsisHorizontal/>
-                                        </Button>
+                                        {product.ImageUrl}
+                                    </TableCell>
+                                    <TableCell>
+                                        <Link to={`/admin/edit/products/${product.id}`}>
+                                            <Button variant="ghost">
+                                                <IoPencil className="h-6 w-6"/>
+                                            </Button>
+                                        </Link>
                                     </TableCell>
                                 </TableRow>
                             )
