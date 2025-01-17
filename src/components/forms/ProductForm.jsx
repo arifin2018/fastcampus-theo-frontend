@@ -9,6 +9,12 @@ import { useNavigate } from "react-router";
 function ProductForm(props) {
     let navigate = useNavigate();
     const [loading,setLoading] = useState(false)
+    const [productRaw, setProductRaw] = useState({
+        name: "",
+        product_image: "",
+        stock: 0,
+        price: 0
+    })
     const schema = z.object({
         name: z.string().min(3, { message: "Must be 3 or more characters long" }),
         price: z.number().int({ message: 'Required' }),
@@ -20,14 +26,10 @@ function ProductForm(props) {
         register,
         handleSubmit,
         formState: { errors },
+        reset
     } = useForm({
         resolver: zodResolver(schema),
-        defaultValues: {
-            name: "",
-            product_image: "",
-            stock: 0,
-            price: 0
-        },
+        defaultValues:productRaw,
     });
 
     const onSubmit = async (data) => {
@@ -49,8 +51,17 @@ function ProductForm(props) {
 
     const getDataFirstForUpdate = async () => {
         try {
-            const response = await axiosInstance.get(props.urlGetDataUpdate)
-            return response.data;
+            const {data} = await axiosInstance.get(props.urlGetDataUpdate)
+            // setProductRaw({
+            //     name: data.name,
+            //     product_image: data.ImageUrl,
+            //     stock: data.stock,
+            //     price: data.price
+            // })
+            setProductRaw({
+                ...data,
+                product_image: data.ImageUrl
+            })
         } catch (error) {
             console.log(error);
         }
@@ -59,6 +70,10 @@ function ProductForm(props) {
     useEffect(() => {
         getDataFirstForUpdate()
     },[]);
+
+    useEffect(() => {
+        reset(productRaw);
+    },[productRaw]);
 
 
     return (
