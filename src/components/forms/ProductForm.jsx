@@ -2,25 +2,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { useEffect, useState } from "react";
-import { axiosInstance } from "@/lib/axios";
-import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 function ProductForm(props) {
-    let navigate = useNavigate();
-    const [loading,setLoading] = useState(false)
-    const [productRaw, setProductRaw] = useState({
-        name: "",
-        product_image: "",
-        stock: 0,
-        price: 0
-    })
     const schema = z.object({
         name: z.string().min(3, { message: "Must be 3 or more characters long" }),
         price: z.number().int({ message: 'Required' }),
         stock: z.number().min(1, { message: 'Required' }),
         product_image: z.string().url({ message: "Invalid url" })
     });
+
+    const {
+        productRaw,
+        onSubmit,
+        loading
+    } = props
 
     const {
         register,
@@ -32,45 +28,6 @@ function ProductForm(props) {
         defaultValues:productRaw,
     });
 
-    const onSubmit = async (data) => {
-        setLoading(true)
-        try {
-            await axiosInstance.post(props.url,{
-                name:data.name,
-                price:data.price,
-                stock:data.stock,
-                ImageUrl:data.product_image
-            })
-        } catch (error) {
-            console.log(error);
-        } finally{
-            setLoading(false)
-            navigate(props.redirectNavigate);
-        }
-    }
-
-    const getDataFirstForUpdate = async () => {
-        try {
-            const {data} = await axiosInstance.get(props.urlGetDataUpdate)
-            // setProductRaw({
-            //     name: data.name,
-            //     product_image: data.ImageUrl,
-            //     stock: data.stock,
-            //     price: data.price
-            // })
-            setProductRaw({
-                ...data,
-                product_image: data.ImageUrl
-            })
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        getDataFirstForUpdate()
-    },[]);
-
     useEffect(() => {
         reset(productRaw);
     },[productRaw]);
@@ -80,10 +37,11 @@ function ProductForm(props) {
         <div>
             <Card className="w-1/3">
                 <CardHeader>
-                    <CardTitle>{props.cardTitle}</CardTitle>
-                    <CardDescription>{props.cardDescription}</CardDescription>
+                    <CardTitle>{productRaw.cardTitle}</CardTitle>
+                    <CardDescription>{productRaw.cardDescription}</CardDescription>
                 </CardHeader>
                 <CardContent>
+                    {/* <form onSubmit={handleSubmit(props.onSubmit)} className="gap-3 flex"> */}
                     <form onSubmit={handleSubmit(onSubmit)} className="gap-3 flex">
                         <div className="flex flex-col gap-3 w-full">
                             <div className="flex flex-col gap-1">

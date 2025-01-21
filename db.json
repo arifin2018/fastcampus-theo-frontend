@@ -8,11 +8,11 @@
       "ImageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=T-Shirt"
     },
     {
-      "id": "2",
-      "name": "Hoodie",
-      "price": 200000,
+      "name": "Hoodie2",
+      "price": 10,
       "stock": 8,
-      "ImageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Hoodie"
+      "ImageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Hoodie",
+      "id": "2"
     },
     {
       "id": "3",
@@ -141,18 +141,25 @@
       "ImageUrl": "https://via.placeholder.com/150/FFD700/FFFFFF?text=Wallet"
     },
     {
-      "id": "51b5",
-      "name": "arifin",
-      "price": 20000,
-      "stock": 20000,
+      "id": "ecde",
+      "name": "Customers",
+      "price": 1113,
+      "stock": 2,
       "ImageUrl": "http://localhost:5173/admin/create/products"
     },
     {
-      "id": "a980",
-      "name": "arifin23",
-      "price": 20000,
-      "stock": 2000,
-      "ImageUrl": "http://localhost:5173/admin/create/products"
+      "id": "f81a",
+      "name": "seller",
+      "price": 4,
+      "stock": 4,
+      "ImageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Hoodie"
+    },
+    {
+      "id": "d39b",
+      "name": "arifin2",
+      "price": -2,
+      "stock": 3,
+      "ImageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=T-Shirt"
     }
   ],
   "comments": [
