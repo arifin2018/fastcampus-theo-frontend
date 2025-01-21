@@ -4,6 +4,7 @@ import Footer from "@/components/pribadi/Footer";
 import Header from "@/components/pribadi/Header";
 import CreateProductPage from "@/pages/admin/CreateProductPage";
 import EditProductPage from "@/pages/admin/EditProductPage";
+import DeleteProductPage from "@/pages/admin/DeleteProductPage";
 import ProductManagementPage from "@/pages/admin/ProductManagmentPage";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
@@ -76,6 +77,7 @@ const Layout = () => {
               <Route path="products" element={<ProductManagementPage />} />
               <Route path="create/products" element={<CreateProductPage />} />
               <Route path="edit/products/:productID" element={<EditProductPage />} />
+              <Route path="delete/products/:productID" element={<DeleteProductPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

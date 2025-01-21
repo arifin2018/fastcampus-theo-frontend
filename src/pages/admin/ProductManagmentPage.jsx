@@ -1,7 +1,7 @@
 import AdminLayout from "@/components/layouts/adminLayout"
 import { Button } from "@/components/ui/button"
 import { IoAdd } from "react-icons/io5";
-import { IoPencil } from "react-icons/io5";
+import { IoPencil,IoTrash } from "react-icons/io5";
 import {
     Table,
     TableBody,
@@ -172,6 +172,11 @@ const ProductManagementPage = () =>{
                                         <Link to={`/admin/edit/products/${product.id}`}>
                                             <Button variant="ghost">
                                                 <IoPencil className="h-6 w-6"/>
+                                            </Button>
+                                        </Link>
+                                        <Link to={`/admin/delete/products/${product.id}`}>
+                                            <Button variant="destructive">
+                                                <IoTrash className="h-6 w-6 bg-transparent"/>
                                             </Button>
                                         </Link>
                                     </TableCell>

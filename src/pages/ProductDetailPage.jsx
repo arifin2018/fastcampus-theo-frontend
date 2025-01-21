@@ -40,6 +40,7 @@ const ProductDetailPage = () => {
 
   useEffect(()=>{
     ProductDetailFetchData()
+    window.scrollTo(0, 0)
   },[])
 
   useEffect(()=>{
