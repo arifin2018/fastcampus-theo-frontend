@@ -1,18 +1,20 @@
 
-import {  } from "react-router";
+import { useLocation } from "react-router";
 import { useEffect } from "react"
 import { useNavigate,useParams } from "react-router";
 import { axiosInstance } from "@/lib/axios";
 
 
-function EditProductPage(){
+function EditProductPage(props){
     let navigate = useNavigate();
-    const {productID} = useParams();
+    const location = useLocation();
+    const data = location.state;
 
 
-    const DeleteDataSingleProduct = async() => {
+
+    const DeleteDataSingleProduct = async(id) => {
         try {
-            await axiosInstance.delete(`product/${productID}`)
+            await axiosInstance.delete(`product/${id}`)
         } catch (error) {
             console.log("error");
             console.log(error);
@@ -20,7 +22,14 @@ function EditProductPage(){
     }
 
     useEffect(()=>{
-        DeleteDataSingleProduct()
+        console.log(data);
+        
+        const deleteConfirm = confirm("are you sure?")
+        if (deleteConfirm) {
+            data.forEach(element => {
+                DeleteDataSingleProduct(element)
+            });
+        }
         navigate("/admin/products");
     },[])
 

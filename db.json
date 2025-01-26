@@ -1,25 +1,11 @@
 {
   "product": [
     {
-      "name": "arifin22",
-      "price": 7,
-      "stock": 3,
-      "ImageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=T-Shirt",
-      "id": "d39b"
-    },
-    {
       "id": "1",
       "name": "T-Shirt",
       "price": 100000,
       "stock": 10,
       "ImageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=T-Shirt"
-    },
-    {
-      "name": "Hoodie2",
-      "price": 10,
-      "stock": 8,
-      "ImageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Hoodie",
-      "id": "2"
     },
     {
       "id": "3",
@@ -132,13 +118,6 @@
       "price": 70000,
       "stock": 15,
       "ImageUrl": "https://via.placeholder.com/150/DAA520/FFFFFF?text=Hat"
-    },
-    {
-      "id": "19",
-      "name": "Sandals",
-      "price": 100000,
-      "stock": 13,
-      "ImageUrl": "https://via.placeholder.com/150/2E8B57/FFFFFF?text=Sandals"
     }
   ],
   "comments": [

@@ -25,6 +25,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 
 
 
@@ -34,6 +36,7 @@ const ProductManagementPage = () =>{
     })
     const [searchParams,setSearchParams] = useSearchParams()
     const [page,setPage] = useState(1)
+    const [perPage,setPerPage] = useState(3)
     const [productSearch,setProductSearch] = useState('')
     const [productSearchTemp,setProductSearchTemp] = useState('')
     const [numberPagination,setNumberPagination] = useState([1])
@@ -85,13 +88,18 @@ const ProductManagementPage = () =>{
         setNumberPagination(number)
     }
 
+    const handleValueChange = (value) => {
+        setPerPage(value); // Update state dengan nilai yang dipilih
+        console.log("Selected Value:", value); // Debugging atau logging nilai
+    };
+
     async function fetchProduct() {
         let response
         try {
             response = await axiosInstance.get("/product",{
                 params:{
                     _page:page,
-                    _per_page:2,
+                    _per_page:perPage,
                     name:productSearch
                 }
             })
@@ -118,13 +126,32 @@ const ProductManagementPage = () =>{
 
     useEffect(() => {
         fetchProduct()
-    },[searchParams])
+    },[searchParams,perPage])
 
     useEffect(()=>{
         handleNumberPagination()
     },[products])
 
+    const [checkedProducts, setCheckedProducts] = useState([]);
 
+    const handleCheckboxChange = (productId, isChecked) => {
+        if (isChecked) {
+            setCheckedProducts([
+                ...checkedProducts,
+                productId])
+        }else{
+            let indexOfProductId = checkedProducts.indexOf(productId)
+            checkedProducts.splice(indexOfProductId,indexOfProductId+1)
+            setCheckedProducts([
+                checkedProducts
+            ])
+        }
+    };
+
+    useEffect(()=>{
+        console.log(checkedProducts);
+    },[checkedProducts])
+    
     return (
         <>
             <AdminLayout
@@ -142,9 +169,28 @@ const ProductManagementPage = () =>{
 
             <div className="mb-3">
                 <Label>SearchBar</Label>
-                <div className="flex">
-                    <Input className="w-1/4 h-8 mr-3" onChange={e => setProductSearchTemp(e.target.value)} value={productSearchTemp}></Input>
+                <div className="flex gap-3">
+                    <Input className="w-1/4 h-8" onChange={e => setProductSearchTemp(e.target.value)} value={productSearchTemp}></Input>
                     <Button className="h-8" onClick={handleSearchProduct}>Search</Button>
+                    <Select onValueChange={handleValueChange}>
+                        <SelectTrigger className="w-[180px] h-8">
+                            <SelectValue placeholder="change per-page data" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="3">3</SelectItem>
+                            <SelectItem value="5">5</SelectItem>
+                            <SelectItem value="10">10</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    {
+                        checkedProducts.length > 0 ?
+                        <Link to="/admin/delete/products" state={checkedProducts}>
+                            <Button className="bg-red-400">
+                                <IoTrash className="h-6 w-6 mr-2"/>
+                                Delete Product
+                            </Button>
+                        </Link>:null
+                    }
                 </div>
             </div>
 
@@ -162,6 +208,9 @@ const ProductManagementPage = () =>{
                         products.data.map((product) => {
                             return (
                                 <TableRow key={product.id}>
+                                    <TableCell>
+                                        <Checkbox onCheckedChange={(checked) =>handleCheckboxChange(product.id,checked)} checked={checkedProducts.includes(product.id)}/>
+                                    </TableCell>
                                     <TableCell>{product.name}</TableCell>
                                     <TableCell>{product.price}</TableCell>
                                     <TableCell>{product.stock}</TableCell>
@@ -174,11 +223,11 @@ const ProductManagementPage = () =>{
                                                 <IoPencil className="h-6 w-6"/>
                                             </Button>
                                         </Link>
-                                        <Link to={`/admin/delete/products/${product.id}`}>
-                                            <Button variant="destructive">
+                                        {/* <Link >
+                                            <Button variant="ghost">
                                                 <IoTrash className="h-6 w-6 bg-transparent"/>
                                             </Button>
-                                        </Link>
+                                        </Link> */}
                                     </TableCell>
                                 </TableRow>
                             )

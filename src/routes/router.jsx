@@ -77,7 +77,7 @@ const Layout = () => {
               <Route path="products" element={<ProductManagementPage />} />
               <Route path="create/products" element={<CreateProductPage />} />
               <Route path="edit/products/:productID" element={<EditProductPage />} />
-              <Route path="delete/products/:productID" element={<DeleteProductPage />} />
+              <Route path="delete/products" element={<DeleteProductPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
