@@ -12,12 +12,20 @@ import NotFound from "@/pages/NotFound";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router"; // Gunakan react-router-dom
+import { Provider } from "react-redux";
+import { legacy_createStore } from "redux";
+import { store } from "@/stores/store";
+
+
+const globalStore = legacy_createStore(store);
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
+    <Provider store={globalStore}>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
+    </Provider>
   );
 };
 
