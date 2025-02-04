@@ -1,11 +1,11 @@
 
 import { useLocation } from "react-router";
 import { useEffect } from "react"
-import { useNavigate,useParams } from "react-router";
+import { useNavigate } from "react-router";
 import { axiosInstance } from "@/lib/axios";
 
 
-function EditProductPage(props){
+function EditProductPage(){
     let navigate = useNavigate();
     const location = useLocation();
     const data = location.state;

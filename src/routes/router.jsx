@@ -15,6 +15,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router"; // Gun
 import { Provider } from "react-redux";
 import { legacy_createStore } from "redux";
 import { store } from "@/stores/store";
+import Counter from "@/pages/Counter";
 
 
 const globalStore = legacy_createStore(store);
@@ -53,6 +54,14 @@ const Layout = () => {
               element={
                 <WrapperHome>
                   <App />
+                </WrapperHome>
+              }
+            />
+            <Route
+              path="/counter"
+              element={
+                <WrapperHome>
+                  <Counter />
                 </WrapperHome>
               }
             />
