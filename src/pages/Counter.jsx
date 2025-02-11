@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxMinus,RxPlus } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -26,7 +26,7 @@ const Counter = () =>{
     return <>
     <div>
         <p className="flex items-center ">
-            Count:{countInput} - {numberSelector}
+            Count:{countInput} - {numberSelector.number}
         </p>
         <div className="flex item-center gap-4">
             <Button onClick={DecrementCountInput} className="icon" >
