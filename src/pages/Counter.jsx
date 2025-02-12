@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RxMinus,RxPlus } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,6 +23,13 @@ const Counter = () =>{
         })
     }
 
+    const ChangesNumberCountInput = () => {
+        dispatch({
+            type:"CHANGES_NUMBER_INPUT_VALUE",
+            payload:countInput
+        })
+    }
+
     return <>
     <div>
         <p className="flex items-center ">
@@ -38,7 +45,7 @@ const Counter = () =>{
 
             <div className="flex gap-2 mt-8">
                 <Input type="number" onChange={(e)=>setCountInput(e.target.value)}></Input>
-                <Button>Submit</Button>
+                <Button onClick={ChangesNumberCountInput}>Submit</Button>
             </div>
         </div>
 
