@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import { legacy_createStore } from "redux";
 import { store } from "@/stores/store";
 import Counter from "@/pages/Counter";
+import Register from "@/pages/Register";
 
 
 const globalStore = legacy_createStore(store);
@@ -74,7 +75,7 @@ const Layout = () => {
               }
             />
             <Route
-              path="/Product/:id"
+              path="/product/:id"
               element={
                 <WrapperHome>
                   <ProductDetailPage />
@@ -86,6 +87,14 @@ const Layout = () => {
               element={
                 <WrapperHome>
                   <Login />
+                </WrapperHome>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <WrapperHome>
+                  <Register />
                 </WrapperHome>
               }
             />

@@ -131,5 +131,49 @@
       "text": "another comment about post 1",
       "postId": "1"
     }
+  ],
+  "users": [
+    {
+      "id": "60ed",
+      "Username": "awd",
+      "Password": "2",
+      "RepeatPassword": "2"
+    },
+    {
+      "id": "a662",
+      "Username": "2",
+      "Password": "2",
+      "RepeatPassword": "2"
+    },
+    {
+      "id": "ac4f",
+      "Username": "a2",
+      "Password": "2",
+      "RepeatPassword": "2"
+    },
+    {
+      "id": "8b16",
+      "Username": "a2",
+      "Password": "2",
+      "RepeatPassword": "2"
+    },
+    {
+      "id": "164c",
+      "Username": "2",
+      "Password": "2",
+      "RepeatPassword": "2"
+    },
+    {
+      "id": "eb7f",
+      "Username": "2",
+      "Password": "2",
+      "RepeatPassword": "2"
+    },
+    {
+      "id": "08df",
+      "Username": "1",
+      "Password": "1",
+      "RepeatPassword": "1"
+    }
   ]
 }
