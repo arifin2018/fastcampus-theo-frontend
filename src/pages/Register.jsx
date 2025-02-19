@@ -42,14 +42,32 @@ const Register = () =>{
 
     async function handleRegister(e){
         setLoading(true)
-        await registerUserAPI(e);
+        let checkUserLength = await checkUserAPI(e);
+        if (checkUserLength < 1) {
+            await registerUserAPI(e);
+        }else{
+            alert("user already exist")
+        }
         setLoading(false)
+    }
+
+    async function checkUserAPI(params){
+        const {Username} = params
+        try {
+            const {data} = await axiosInstance.get(`/users?Username=${Username}`)
+            return data.length
+        } catch (error) {
+            console.info("error checkUserAPI")
+            console.log(error);
+            return 0
+        }
     }
 
     async function registerUserAPI(params) {
         try {
             await axiosInstance.post("/users",params)
         } catch (error) {
+            console.info("error registerUserAPI")
             console.log(error);
         }
     }

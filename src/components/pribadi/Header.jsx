@@ -3,9 +3,17 @@ import { Input } from "../ui/input"
 import { IoCart,IoHeart } from "react-icons/io5";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 
 const Header = () => {
+
+    const getUserStore = useSelector(state => state.user)
+    useEffect(() => {
+        console.log(getUserStore);
+    }, [getUserStore]);
+
     return (
         <>
             <div className="flex justify-between px-6 py-2 items-center">
@@ -22,15 +30,18 @@ const Header = () => {
                             <IoHeart className="h-6 w-6"/>
                         </Button>
                     </div>
-                    <Separator orientation="vertical" className="h-10"/>
-
-                    
-                    <Link to="login">
-                        <Button>
-                            Log in
-                        </Button>
-                    </Link>
-                    <Button variant="outline">Sign Up</Button>
+                    <Separator orientation="vertical" className="h-10 p-auto"/>
+                    {
+                        getUserStore?.Username != "" ? getUserStore?.Username : 
+                        <>
+                        <Link to="login">
+                            <Button>
+                                Log in
+                            </Button>
+                        </Link>
+                        <Button variant="outline">Sign Up</Button>
+                        </>
+                    }
                 </div>
             </div>
 
