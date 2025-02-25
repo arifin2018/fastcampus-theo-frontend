@@ -48,6 +48,7 @@ const login = () =>{
         try {
             const {data} = await axiosInstance.get(`/users?Username=${Username}&Password=${Password}`)
             ChangesUserLogin(data)
+            localStorage.setItem("current-user",JSON.stringify(data))
             return data.length
         } catch (error) {
             console.info("error checkUserAPI")
