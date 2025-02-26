@@ -17,6 +17,7 @@ import { legacy_createStore } from "redux";
 import { store } from "@/stores/store";
 import Counter from "@/pages/Counter";
 import Register from "@/pages/Register";
+import { Cart } from "@/pages/cart";
 
 const globalStore = legacy_createStore(store);
 
@@ -90,6 +91,14 @@ const Layout = () => {
               element={
                 <WrapperHome>
                   <Home />
+                </WrapperHome>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <WrapperHome>
+                  <Cart />
                 </WrapperHome>
               }
             />

@@ -37,7 +37,9 @@ const Header = () => {
                 <div className="flex space-x-4 items-center justify-center">
                     <div className="flex flex-x-2">
                         <Button variant="ghost" className="p-2">
-                            <IoCart className="h-6 w-6"/>
+                            <Link to="cart">
+                                <IoCart className="h-6 w-6"/>
+                            </Link>
                         </Button>
                         <Button variant="ghost" className="p-2">
                             <IoHeart className="h-6 w-6"/>
