@@ -12,12 +12,13 @@ import NotFound from "@/pages/NotFound";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router"; // Gunakan react-router-dom
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import { legacy_createStore } from "redux";
 import { store } from "@/stores/store";
 import Counter from "@/pages/Counter";
 import Register from "@/pages/Register";
 import { Cart } from "@/pages/cart";
+import { UserCheck } from "@/lib/userCheck";
 
 const globalStore = legacy_createStore(store);
 
@@ -34,30 +35,12 @@ const Router = () => {
 const Layout = () => {
   const location = useLocation(); // Gunakan useLocation di dalam BrowserRouter
   const [admin, setAdmin] = useState(false);
-  const dispatch = useDispatch()
 
   useEffect(() => {
     setAdmin(location.pathname.startsWith("/admin")); // Periksa apakah pathname mengandung "/admin"
   }, [location.pathname]);
 
-  
-  const checkUserLocalStorage = (data) =>{
-      dispatch({
-          type:"SET_USER_LOGIN",
-          payload:{
-              Username:data[0].Username,
-              Id:data[0].id,
-          }
-      })
-  }
-
-
-  useEffect(()=>{
-      let checkUserLocalStorageVariable = localStorage.getItem("current-user")
-      if (checkUserLocalStorageVariable != null) {
-          checkUserLocalStorage(JSON.parse(checkUserLocalStorageVariable))
-      }
-  },[])
+  UserCheck()
 
   return (
     <>
