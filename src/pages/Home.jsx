@@ -35,8 +35,6 @@ const Home = () =>{
     }
     useEffect(() => {
         productFetchData()
-        console.log(userSelector);
-        
     },[]);
 
     // useEffect(() => {

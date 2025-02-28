@@ -1,5 +1,6 @@
 const default_state = {
     Username:"",
+    Role:"",
     Id:""
 }
 

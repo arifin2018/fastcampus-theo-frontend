@@ -42,10 +42,6 @@ const ProductDetailPage = () => {
     ProductDetailFetchData()
     window.scrollTo(0, 0)
   },[])
-
-  useEffect(()=>{
-    console.log(productRaw);
-  },[productRaw])
   
   
   return (

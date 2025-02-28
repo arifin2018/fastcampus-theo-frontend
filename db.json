@@ -137,13 +137,15 @@
       "id": "2aab",
       "Username": "11",
       "Password": "12",
-      "RepeatPassword": "12"
+      "RepeatPassword": "12",
+      "role": "admin"
     },
     {
       "id": "b68a",
       "Username": "a2",
       "Password": "1",
-      "RepeatPassword": "1"
+      "RepeatPassword": "1",
+      "role": "staff"
     }
   ]
 }

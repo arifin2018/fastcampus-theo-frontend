@@ -33,10 +33,6 @@ function EditProductPage(){
         getDataFirstForUpdate()
     },[]);
 
-    useEffect(() => {
-        console.log(productRaw);
-    },[productRaw]);
-
     const onSubmit = async (data) => {
         setLoading(true)
         try {

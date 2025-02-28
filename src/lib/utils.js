@@ -6,9 +6,6 @@ export function cn(...inputs) {
 }
 
 export function ScrollToTop(){
-  console.log("arifin");
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  console.log(window.screenX);
-  console.log(window.screenY);
   
 }

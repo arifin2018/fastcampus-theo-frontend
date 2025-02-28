@@ -22,8 +22,6 @@ function EditProductPage(){
     }
 
     useEffect(()=>{
-        console.log(data);
-        
         const deleteConfirm = confirm("are you sure?")
         if (deleteConfirm) {
             data.forEach(element => {

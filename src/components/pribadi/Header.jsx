@@ -4,22 +4,18 @@ import { IoCart,IoHeart } from "react-icons/io5";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 
 
 const Header = () => {
 
     const dispatch = useDispatch()
     const getUserStore = useSelector(state => state.user)
-    useEffect(() => {
-        console.log(getUserStore);
-    }, [getUserStore]);
+    // useEffect(() => {
+    //     console.log(getUserStore);
+    // }, [getUserStore]);
 
 
-    const LogoutButton = (e)=>{
-        console.log("arifin");
-        console.log(e);
-
+    const LogoutButton = ()=>{
         localStorage.removeItem("current-user")
 
         dispatch({

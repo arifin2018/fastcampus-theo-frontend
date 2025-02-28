@@ -90,7 +90,6 @@ const ProductManagementPage = () =>{
 
     const handleValueChange = (value) => {
         setPerPage(value); // Update state dengan nilai yang dipilih
-        console.log("Selected Value:", value); // Debugging atau logging nilai
     };
 
     async function fetchProduct() {
@@ -116,6 +115,10 @@ const ProductManagementPage = () =>{
             searchParams.set("page", Number(searchParams.get("page")))
             setPage(Number(searchParams.get("page")))
         }
+        console.log(
+            "12"
+        );
+        
     },[])
 
     useEffect(() => {
@@ -147,134 +150,128 @@ const ProductManagementPage = () =>{
             ])
         }
     };
-
-    useEffect(()=>{
-        console.log(checkedProducts);
-    },[checkedProducts])
     
     return (
-        <>
-            <AdminLayout
-                namePageLayout="Product Management Page"
-                sectionNamePageLayout="Manage our store&apos;s product"
-                buttonPageLayout={
-                <Link to="/admin/create/products">
-                    <Button>
-                        <IoAdd className="h-6 w-6 mr-2"></IoAdd>
-                        Add Product
+        <AdminLayout
+            namePageLayout="Product Management Page"
+            sectionNamePageLayout="Manage our store&apos;s product"
+            buttonPageLayout={
+            <Link to="/admin/create/products">
+                <Button>
+                    <IoAdd className="h-6 w-6 mr-2"></IoAdd>
+                    Add Product
+                </Button>
+            </Link>}
+        >
+        <div>
+
+        <div className="mb-3">
+            <Label>SearchBar</Label>
+            <div className="flex gap-3">
+                <Input className="w-1/4 h-8" onChange={e => setProductSearchTemp(e.target.value)} value={productSearchTemp}></Input>
+                <Button className="h-8" onClick={handleSearchProduct}>Search</Button>
+                <Select onValueChange={handleValueChange}>
+                    <SelectTrigger className="w-[180px] h-8">
+                        <SelectValue placeholder="change per-page data" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="3">3</SelectItem>
+                        <SelectItem value="5">5</SelectItem>
+                        <SelectItem value="10">10</SelectItem>
+                    </SelectContent>
+                </Select>
+                {
+                    checkedProducts.length > 0 ?
+                    <Link to="/admin/delete/products" state={checkedProducts}>
+                        <Button className="bg-red-400">
+                            <IoTrash className="h-6 w-6 mr-2"/>
+                            Delete Product
+                        </Button>
+                    </Link>:null
+                }
+            </div>
+        </div>
+
+        <Table className="mb-3">
+            <TableHeader>
+                <TableRow>
+                <TableHead>Name</TableHead>
+                <TableHead>Price</TableHead>
+                <TableHead>Stock</TableHead>
+                <TableHead>Image url</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                {
+                    products.data.map((product) => {
+                        return (
+                            <TableRow key={product.id}>
+                                <TableCell>
+                                    <Checkbox onCheckedChange={(checked) =>handleCheckboxChange(product.id,checked)} checked={checkedProducts.includes(product.id)}/>
+                                </TableCell>
+                                <TableCell>{product.name}</TableCell>
+                                <TableCell>{product.price}</TableCell>
+                                <TableCell>{product.stock}</TableCell>
+                                <TableCell>
+                                    {product.ImageUrl}
+                                </TableCell>
+                                <TableCell>
+                                    <Link to={`/admin/edit/products/${product.id}`}>
+                                        <Button variant="ghost">
+                                            <IoPencil className="h-6 w-6"/>
+                                        </Button>
+                                    </Link>
+                                    {/* <Link >
+                                        <Button variant="ghost">
+                                            <IoTrash className="h-6 w-6 bg-transparent"/>
+                                        </Button>
+                                    </Link> */}
+                                </TableCell>
+                            </TableRow>
+                        )
+                    })
+                }
+            </TableBody>
+            <TableFooter>
+                <TableRow>
+                {/* <TableCell colSpan={3}>Total</TableCell>
+                <TableCell className="text-right">$2,500.00</TableCell> */}
+                </TableRow>
+            </TableFooter>
+        </Table>
+        <Pagination>
+            <PaginationContent>
+                <PaginationItem>
+                    <Button disabled={page <= 1 }>
+                        <PaginationPrevious className="cursor-pointer" onClick={handlePreviousPage}/>
                     </Button>
-                </Link>}
-            >
-            <div>
-
-            <div className="mb-3">
-                <Label>SearchBar</Label>
-                <div className="flex gap-3">
-                    <Input className="w-1/4 h-8" onChange={e => setProductSearchTemp(e.target.value)} value={productSearchTemp}></Input>
-                    <Button className="h-8" onClick={handleSearchProduct}>Search</Button>
-                    <Select onValueChange={handleValueChange}>
-                        <SelectTrigger className="w-[180px] h-8">
-                            <SelectValue placeholder="change per-page data" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="3">3</SelectItem>
-                            <SelectItem value="5">5</SelectItem>
-                            <SelectItem value="10">10</SelectItem>
-                        </SelectContent>
-                    </Select>
+                </PaginationItem>
+                <PaginationItem>
+                </PaginationItem>
+                <PaginationItem>
                     {
-                        checkedProducts.length > 0 ?
-                        <Link to="/admin/delete/products" state={checkedProducts}>
-                            <Button className="bg-red-400">
-                                <IoTrash className="h-6 w-6 mr-2"/>
-                                Delete Product
-                            </Button>
-                        </Link>:null
+                        numberPagination.map((number) => (
+                            // href={`products?page=${number}`}
+                            <PaginationLink key={number} onClick={()=>{
+                                numberPages(number)
+                            }} className={`cursor-pointer ${number == page ? 'bg-primary text-white hover:bg-gray-400' : ''}`}>
+                                {number}
+                            </PaginationLink>
+                        ))
                     }
-                </div>
-            </div>
+                </PaginationItem>
+                <PaginationItem>
+                </PaginationItem>
+                <PaginationItem>
+                    <Button disabled={page >= products.last}>
+                        <PaginationNext className="cursor-pointer" onClick={handleNextPage}/>
+                    </Button>
+                </PaginationItem>
+            </PaginationContent>
+        </Pagination>
 
-            <Table className="mb-3">
-                <TableHeader>
-                    <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Price</TableHead>
-                    <TableHead>Stock</TableHead>
-                    <TableHead>Image url</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {
-                        products.data.map((product) => {
-                            return (
-                                <TableRow key={product.id}>
-                                    <TableCell>
-                                        <Checkbox onCheckedChange={(checked) =>handleCheckboxChange(product.id,checked)} checked={checkedProducts.includes(product.id)}/>
-                                    </TableCell>
-                                    <TableCell>{product.name}</TableCell>
-                                    <TableCell>{product.price}</TableCell>
-                                    <TableCell>{product.stock}</TableCell>
-                                    <TableCell>
-                                        {product.ImageUrl}
-                                    </TableCell>
-                                    <TableCell>
-                                        <Link to={`/admin/edit/products/${product.id}`}>
-                                            <Button variant="ghost">
-                                                <IoPencil className="h-6 w-6"/>
-                                            </Button>
-                                        </Link>
-                                        {/* <Link >
-                                            <Button variant="ghost">
-                                                <IoTrash className="h-6 w-6 bg-transparent"/>
-                                            </Button>
-                                        </Link> */}
-                                    </TableCell>
-                                </TableRow>
-                            )
-                        })
-                    }
-                </TableBody>
-                <TableFooter>
-                    <TableRow>
-                    {/* <TableCell colSpan={3}>Total</TableCell>
-                    <TableCell className="text-right">$2,500.00</TableCell> */}
-                    </TableRow>
-                </TableFooter>
-            </Table>
-            <Pagination>
-                <PaginationContent>
-                    <PaginationItem>
-                        <Button disabled={page <= 1 }>
-                            <PaginationPrevious className="cursor-pointer" onClick={handlePreviousPage}/>
-                        </Button>
-                    </PaginationItem>
-                    <PaginationItem>
-                    </PaginationItem>
-                    <PaginationItem>
-                        {
-                            numberPagination.map((number) => (
-                                // href={`products?page=${number}`}
-                                <PaginationLink key={number} onClick={()=>{
-                                    numberPages(number)
-                                }} className={`cursor-pointer ${number == page ? 'bg-primary text-white hover:bg-gray-400' : ''}`}>
-                                    {number}
-                                </PaginationLink>
-                            ))
-                        }
-                    </PaginationItem>
-                    <PaginationItem>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <Button disabled={page >= products.last}>
-                            <PaginationNext className="cursor-pointer" onClick={handleNextPage}/>
-                        </Button>
-                    </PaginationItem>
-                </PaginationContent>
-            </Pagination>
-
-            </div>
-            </AdminLayout>
-        </>
+        </div>
+        </AdminLayout>
     )
 }
 

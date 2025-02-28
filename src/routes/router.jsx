@@ -18,6 +18,7 @@ import { store } from "@/stores/store";
 import Counter from "@/pages/Counter";
 import Register from "@/pages/Register";
 import { Cart } from "@/pages/cart";
+import { AdminPage } from "@/components/guards/AdminPage";
 
 const globalStore = legacy_createStore(store);
 
@@ -46,6 +47,7 @@ const Layout = () => {
           type:"SET_USER_LOGIN",
           payload:{
               Username:data[0].Username,
+              Role:data[0].role,
               Id:data[0].id,
           }
       })
@@ -127,7 +129,8 @@ const Layout = () => {
               }
             />
 
-            <Route path="/admin">
+            {/* <Route path="/admin" element={<AdminPage />}> */}
+            <Route path="/admin" element={<AdminPage />}>
               <Route path="products" element={<ProductManagementPage />} />
               <Route path="create/products" element={<CreateProductPage />} />
               <Route path="edit/products/:productID" element={<EditProductPage />} />

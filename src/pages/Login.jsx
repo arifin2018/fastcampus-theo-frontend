@@ -39,6 +39,7 @@ const login = () =>{
             type:"SET_USER_LOGIN",
             payload:{
                 Username:data[0].Username,
+                Role:data[0].role,
                 Id:data[0].id,
             }
         })
@@ -53,7 +54,7 @@ const login = () =>{
             return data.length
         } catch (error) {
             console.info("error checkUserAPI")
-            console.log(error);
+            console.info(error)
             return 0
         }
     }
