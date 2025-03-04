@@ -12,7 +12,7 @@ import NotFound from "@/pages/NotFound";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router"; // Gunakan react-router-dom
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import { legacy_createStore } from "redux";
 import { store } from "@/stores/store";
 import Counter from "@/pages/Counter";
