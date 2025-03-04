@@ -1,6 +1,5 @@
 import ProductCard from "@/components/pribadi/ProductCard"
 import { axiosInstance } from "@/lib/axios";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 // const productRaw2 = [
@@ -22,7 +21,6 @@ const Home = () =>{
     const [loading, setloading] = useState(false)
     const [productRaw, setProductRaw] = useState([])
 
-    const userSelector = useSelector(state => state.user)
 
     const productFetchData = async () =>{
         try {
@@ -37,16 +35,6 @@ const Home = () =>{
         productFetchData()
     },[]);
 
-    // useEffect(() => {
-    //     alert("UPDATED")
-    // },[productRaw]);
-
-    // useEffect(() => {
-    //     return ()=>{
-    //         alert("TOKAI")
-    //     }
-    // },[]);
-
     const product = productRaw.map((product) => {
         return (
             <ProductCard key={product.name} id={product.id} ImageUrl={product.ImageUrl} title={product.name} price={product.price} stock={product.stock}/>
@@ -57,7 +45,7 @@ const Home = () =>{
     return (
         <>
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Become a trend-setter with us {userSelector.Username}
+                Become a trend-setter with us
             </h1>
             <p className="pt-6 text-lg max-w-prose text-muted-foreground">
                 FastCampusCommerce Provides you with the finest clothings and ensures your confidence throughout your days.

@@ -3,8 +3,19 @@ import { useSelector } from "react-redux"
 
 export const SigninPage = (props) => {
     const userSelector = useSelector(state => state.user)
+    console.log(userSelector.Id);
+    // if (!userSelector.Id) {
+    //     return <div>Loading...</div>; // Atau bisa tambahkan spinner/loading indicator
+    // }
+
     if (!userSelector.Id) {
-        return <Navigate to="/"></Navigate>
+        return <Navigate to="/" />;
     }
-    return props.children
+
+    return (
+        // <div>
+        //     <Outlet /> {/* Tambahkan Outlet untuk menampilkan child routes */}
+        // </div>
+        props.children
+    );
 }

@@ -5,119 +5,119 @@
       "name": "T-Shirt",
       "price": 100000,
       "stock": 10,
-      "ImageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=T-Shirt"
+      "ImageUrl": "https://placehold.co/400/FF0000/FFFFFF?text=T-Shirt"
     },
     {
       "id": "3",
       "name": "Jacket",
       "price": 500000,
       "stock": 5,
-      "ImageUrl": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Jacket"
+      "ImageUrl": "https://placehold.co/400/0000FF/FFFFFF?text=Jacket"
     },
     {
       "id": "4",
       "name": "Cap",
       "price": 50000,
       "stock": 15,
-      "ImageUrl": "https://via.placeholder.com/150/FFFF00/FFFFFF?text=Cap"
+      "ImageUrl": "https://placehold.co/400/FFFF00/FFFFFF?text=Cap"
     },
     {
       "id": "5",
       "name": "Jeans",
       "price": 250000,
       "stock": 12,
-      "ImageUrl": "https://via.placeholder.com/150/FF00FF/FFFFFF?text=Jeans"
+      "ImageUrl": "https://placehold.co/400/FF00FF/FFFFFF?text=Jeans"
     },
     {
       "id": "6",
       "name": "Sneakers",
       "price": 400000,
       "stock": 7,
-      "ImageUrl": "https://via.placeholder.com/150/00FFFF/FFFFFF?text=Sneakers"
+      "ImageUrl": "https://placehold.co/400/00FFFF/FFFFFF?text=Sneakers"
     },
     {
       "id": "7",
       "name": "Socks",
       "price": 25000,
       "stock": 25,
-      "ImageUrl": "https://via.placeholder.com/150/FFA500/FFFFFF?text=Socks"
+      "ImageUrl": "https://placehold.co/400/FFA500/FFFFFF?text=Socks"
     },
     {
       "id": "8",
       "name": "Shorts",
       "price": 120000,
       "stock": 10,
-      "ImageUrl": "https://via.placeholder.com/150/800080/FFFFFF?text=Shorts"
+      "ImageUrl": "https://placehold.co/400/800080/FFFFFF?text=Shorts"
     },
     {
       "id": "9",
       "name": "Dress",
       "price": 300000,
       "stock": 6,
-      "ImageUrl": "https://via.placeholder.com/150/008000/FFFFFF?text=Dress"
+      "ImageUrl": "https://placehold.co/400/008000/FFFFFF?text=Dress"
     },
     {
       "id": "10",
       "name": "Blouse",
       "price": 150000,
       "stock": 9,
-      "ImageUrl": "https://via.placeholder.com/150/FFC0CB/FFFFFF?text=Blouse"
+      "ImageUrl": "https://placehold.co/400/FFC0CB/FFFFFF?text=Blouse"
     },
     {
       "id": "11",
       "name": "Sweater",
       "price": 220000,
       "stock": 11,
-      "ImageUrl": "https://via.placeholder.com/150/800000/FFFFFF?text=Sweater"
+      "ImageUrl": "https://placehold.co/400/800000/FFFFFF?text=Sweater"
     },
     {
       "id": "12",
       "name": "Backpack",
       "price": 350000,
       "stock": 8,
-      "ImageUrl": "https://via.placeholder.com/150/808080/FFFFFF?text=Backpack"
+      "ImageUrl": "https://placehold.co/400/808080/FFFFFF?text=Backpack"
     },
     {
       "id": "13",
       "name": "Gloves",
       "price": 80000,
       "stock": 18,
-      "ImageUrl": "https://via.placeholder.com/150/000000/FFFFFF?text=Gloves"
+      "ImageUrl": "https://placehold.co/400/000000/FFFFFF?text=Gloves"
     },
     {
       "id": "14",
       "name": "Belt",
       "price": 90000,
       "stock": 14,
-      "ImageUrl": "https://via.placeholder.com/150/FFFFFF/000000?text=Belt"
+      "ImageUrl": "https://placehold.co/400/FFFFFF/000000?text=Belt"
     },
     {
       "id": "15",
       "name": "Sunglasses",
       "price": 175000,
       "stock": 10,
-      "ImageUrl": "https://via.placeholder.com/150/A52A2A/FFFFFF?text=Sunglasses"
+      "ImageUrl": "https://placehold.co/400/A52A2A/FFFFFF?text=Sunglasses"
     },
     {
       "id": "16",
       "name": "Watch",
       "price": 600000,
       "stock": 4,
-      "ImageUrl": "https://via.placeholder.com/150/4682B4/FFFFFF?text=Watch"
+      "ImageUrl": "https://placehold.co/400/4682B4/FFFFFF?text=Watch"
     },
     {
       "id": "17",
       "name": "Scarf",
       "price": 120000,
       "stock": 20,
-      "ImageUrl": "https://via.placeholder.com/150/D2691E/FFFFFF?text=Scarf"
+      "ImageUrl": "https://placehold.co/400/D2691E/FFFFFF?text=Scarf"
     },
     {
       "id": "18",
       "name": "Hat",
       "price": 70000,
       "stock": 15,
-      "ImageUrl": "https://via.placeholder.com/150/DAA520/FFFFFF?text=Hat"
+      "ImageUrl": "https://placehold.co/400/DAA520/FFFFFF?text=Hat"
     }
   ],
   "comments": [

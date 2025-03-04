@@ -17,8 +17,8 @@ import { legacy_createStore } from "redux";
 import { store } from "@/stores/store";
 import Counter from "@/pages/Counter";
 import Register from "@/pages/Register";
-import { Cart } from "@/pages/cart";
 import { AdminPage } from "@/components/guards/AdminPage";
+import { Carts } from "@/pages/carts";
 
 const globalStore = legacy_createStore(store);
 
@@ -35,6 +35,7 @@ const Router = () => {
 const Layout = () => {
   const location = useLocation(); // Gunakan useLocation di dalam BrowserRouter
   const [admin, setAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Track loading state
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -59,7 +60,13 @@ const Layout = () => {
       if (checkUserLocalStorageVariable != null) {
           checkUserLocalStorage(JSON.parse(checkUserLocalStorageVariable))
       }
+      setIsLoading(false);
   },[])
+
+  if (isLoading) {
+    // Optionally return a loading state while checking localStorage
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -100,7 +107,7 @@ const Layout = () => {
               path="/cart"
               element={
                 <WrapperHome>
-                  <Cart />
+                  <Carts />
                 </WrapperHome>
               }
             />
