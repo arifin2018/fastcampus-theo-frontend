@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { IoIosRemove } from "react-icons/io";
 import { IoIosAdd } from "react-icons/io";
+import { FcCheckmark } from "react-icons/fc";
 
 export default function Cart() {
     return (
@@ -22,6 +23,17 @@ export default function Cart() {
                     <Button variants="ghost" size="icon">
                         <IoIosAdd />
                     </Button>
+                </div>
+                <div className="flex justify-around">
+                    <div className="flex gap-3 items-center">
+                        <FcCheckmark className="h-6 w-6"/>
+                        <span>Available</span>
+                    </div>
+                    <div>
+                        <Button variant="ghost">
+                            <span className="text-red-500">Remove Item</span>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </>

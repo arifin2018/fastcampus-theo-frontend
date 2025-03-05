@@ -19,6 +19,7 @@ import Counter from "@/pages/Counter";
 import Register from "@/pages/Register";
 import { AdminPage } from "@/components/guards/AdminPage";
 import { Carts } from "@/pages/carts";
+import { useDispatch } from "react-redux";
 
 const globalStore = legacy_createStore(store);
 
