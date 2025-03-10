@@ -25,7 +25,7 @@ const Home = () =>{
     const productFetchData = async () =>{
         try {
             setloading(true)
-            const response = await axiosInstance.get("/product")
+            const response = await axiosInstance.get("/products")
             setProductRaw(response.data) 
         } finally{
             setloading(false)

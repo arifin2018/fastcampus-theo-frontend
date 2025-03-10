@@ -20,7 +20,7 @@ function CreateProductPage(){
     const onSubmit = async (data) => {
         // setLoading(true)
         try {
-            await axiosInstance.post(`/product`,{
+            await axiosInstance.post(`/producs`,{
                 name:data.name,
                 price:data.price,
                 stock:data.stock,

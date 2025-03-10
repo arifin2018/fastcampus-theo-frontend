@@ -1,5 +1,5 @@
 {
-  "product": [
+  "products": [
     {
       "id": "1",
       "name": "T-Shirt",
@@ -146,6 +146,14 @@
       "Password": "1",
       "RepeatPassword": "1",
       "role": "staff"
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "userId": "14",
+      "productId": "1",
+      "quantity": "2"
     }
   ]
 }

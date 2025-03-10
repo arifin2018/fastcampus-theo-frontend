@@ -2,10 +2,13 @@ import {useEffect, useState} from "react"
 import { Button } from "../ui/button"
 import { IoAdd,IoRemove } from "react-icons/io5";
 import { Link } from "react-router";
+import { axiosInstance } from "@/lib/axios";
+import { useSelector } from "react-redux";
 
 const ProductCard = (props) => {
     const {id,ImageUrl,title,price,stock} = props
     const [quantity, setquantity] = useState(0)
+    const getUserStore = useSelector(state => state.user)
 
     function incrementQuantity() {
         if (quantity < stock) {
@@ -16,6 +19,20 @@ const ProductCard = (props) => {
     function decrementQuantity() {
         if (quantity > 0) {
             setquantity(quantity - 1)
+        }
+    }
+
+    const postToCart = async()=>{
+        try {
+            await axiosInstance.post("/carts",{
+                userId:getUserStore.Id ?? 0,
+                productId:id,
+                quantity:quantity
+            })
+            
+        } catch (error) {
+            console.log(error);
+            
         }
     }
 
@@ -45,7 +62,7 @@ const ProductCard = (props) => {
                         <IoAdd />
                     </Button>
                 </div>
-                <Button disabled={stock <= 0} onClick={() => console.log("add to cart")} className="w-full">{
+                <Button disabled={stock <= 0 || quantity <= 0} onClick={postToCart} className="w-full">{
                     stock > 0 ?  "Add to cart" : "Out of stock"
                 }</Button>
             </div>

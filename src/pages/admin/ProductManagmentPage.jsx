@@ -95,7 +95,7 @@ const ProductManagementPage = () =>{
     async function fetchProduct() {
         let response
         try {
-            response = await axiosInstance.get("/product",{
+            response = await axiosInstance.get("/products",{
                 params:{
                     _page:page,
                     _per_page:perPage,
