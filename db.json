@@ -1,11 +1,11 @@
 {
   "products": [
     {
+      "ImageUrl": "https://placehold.co/400/FF0000/FFFFFF?text=T-Shirt",
       "id": "1",
       "name": "T-Shirt",
       "price": 100000,
-      "stock": 10,
-      "ImageUrl": "https://placehold.co/400/FF0000/FFFFFF?text=T-Shirt"
+      "stock": 7
     },
     {
       "id": "3",
@@ -150,10 +150,22 @@
   ],
   "carts": [
     {
-      "id": "1",
-      "userId": "14",
+      "id": "7a93",
+      "userId": "b68a",
       "productId": "1",
-      "quantity": "2"
+      "quantity": 1
+    },
+    {
+      "id": "ad91",
+      "userId": "b68a",
+      "productId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "cad7",
+      "userId": "b68a",
+      "productId": "1",
+      "quantity": 1
     }
   ]
 }

@@ -29,10 +29,16 @@ const ProductCard = (props) => {
                 productId:id,
                 quantity:quantity
             })
-            
+            const {data} = await axiosInstance.get(`/products/?id=${id}`)
+            let stockNow = 0
+            if (data.length > 0) {
+                let stock = data[0].stock
+                stockNow = stock - quantity
+                data[0].stock = stockNow
+            }
+            await axiosInstance.put(`/products/${id}`,data[0])
         } catch (error) {
             console.log(error);
-            
         }
     }
 
@@ -42,7 +48,6 @@ const ProductCard = (props) => {
     return (
         <div className="p-4 border rounded-md flex flex-col gap-4 md:max-w-96 max-h-[32rem] min-h-80">
             <Link to={"/Product/"+id} className="aspect-square w-full overflow-hidden">
-                {/* <img className="w-full" src="https://down-id.img.susercontent.com/file/id-11134207-7qukx-ljl41ov0wv6g1f@resize_w450_nl.webp" alt="product" /> */}
                 <img className="w-full" src={ImageUrl} alt="product" />
             </Link>
 
