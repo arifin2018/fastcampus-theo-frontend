@@ -23,14 +23,31 @@ const ProductCard = (props) => {
     }
 
     const postToCart = async()=>{
+        let stockNow = 0
+        const {data} = await axiosInstance.get(`/products/?id=${id}`)
+        if (data.length > 0) {
+            let stock = data[0].stock
+            if (stock < quantity) {
+                return alert("stock has running out,please refresh")
+            }
+        }
+
         try {
-            await axiosInstance.post("/carts",{
-                userId:getUserStore.Id ?? 0,
-                productId:id,
-                quantity:quantity
-            })
-            const {data} = await axiosInstance.get(`/products/?id=${id}`)
-            let stockNow = 0
+            const dataCart = await axiosInstance.get(`/carts/?userId=${getUserStore.Id ?? 0}&productId=${id}`)
+            console.log(dataCart.data.length);
+            if (dataCart.data.length > 0 ) {
+                dataCart.data[0].quantity += quantity
+                console.log(dataCart);
+                await axiosInstance.put(`/carts/${dataCart.data[0].id}`,dataCart.data[0])
+            }else{
+                await axiosInstance.post("/carts",{
+                    userId:getUserStore.Id ?? 0,
+                    productId:id,
+                    quantity:quantity
+                })
+            }
+
+            
             if (data.length > 0) {
                 let stock = data[0].stock
                 stockNow = stock - quantity
