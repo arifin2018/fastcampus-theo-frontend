@@ -3,17 +3,17 @@ import { IoIosRemove } from "react-icons/io";
 import { IoIosAdd } from "react-icons/io";
 import { FcCheckmark } from "react-icons/fc";
 
-export default function Cart() {
+export default function Cart(props) {
     return (
-        <>
-            <div className="w-10/12 px-4">
-                <img src="https://placehold.co/600x400" alt="https://placehold.co/600x400" className="w-full" />
+        <div className="flex">
+            <div className="w-4/12 px-4">
+                <img src={props.imageUrl} alt={props.imageUrl} className="w-full" />
             </div>
 
             <div className="flex flex-col justify-center w-full">
                 <div className="flex justify-center flex-col">
-                    <p>600x400</p>
-                    <p className="font-bold">Rp. 200000</p>
+                    <p>{props.title}</p>
+                    <p className="font-bold">Rp. {props.price}</p>
                 </div>
                 <div className="flex justify-center gap-4">
                     <Button variants="ghost" size="icon">
@@ -36,6 +36,6 @@ export default function Cart() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
