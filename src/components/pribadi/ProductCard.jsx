@@ -4,11 +4,14 @@ import { IoAdd,IoRemove } from "react-icons/io5";
 import { Link } from "react-router";
 import { axiosInstance } from "@/lib/axios";
 import { useSelector } from "react-redux";
+import getCartData from "@/lib/cartCheck";
+import { useDispatch } from "react-redux";
 
 const ProductCard = (props) => {
     const {id,ImageUrl,title,price,stock} = props
     const [quantity, setquantity] = useState(0)
     const getUserStore = useSelector(state => state.user)
+    const dispatch = useDispatch()
 
     function incrementQuantity() {
         if (quantity < stock) {
@@ -57,9 +60,11 @@ const ProductCard = (props) => {
         } catch (error) {
             console.log(error);
         }
+        getCartData(dispatch)
     }
 
     useEffect(()=>{
+
     })
 
     return (

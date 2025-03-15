@@ -4,15 +4,20 @@ import { IoCart,IoHeart } from "react-icons/io5";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import getCartData from "@/lib/cartCheck";
 
 
 const Header = () => {
 
     const dispatch = useDispatch()
     const getUserStore = useSelector(state => state.user)
+    const cart = useSelector(state => state.cart);
     // useEffect(() => {
     //     console.log(getUserStore);
     // }, [getUserStore]);
+
+    
 
 
     const LogoutButton = ()=>{
@@ -22,6 +27,10 @@ const Header = () => {
             type:"SET_USER_LOGOUT"
         })
     }
+
+    useEffect(()=>{
+        getCartData(dispatch)
+    },[dispatch])
 
     return (
         <>
@@ -33,8 +42,9 @@ const Header = () => {
                 <div className="flex space-x-4 items-center justify-center">
                     <div className="flex flex-x-2">
                         <Button variant="ghost" className="p-2">
-                            <Link to="cart">
+                            <Link to="cart" className="flex justify-items-center justify-center">
                                 <IoCart className="h-6 w-6"/>
+                                <span className="flex items-center">{cart.data?.length || 0}</span>
                             </Link>
                         </Button>
                         <Button variant="ghost" className="p-2">
