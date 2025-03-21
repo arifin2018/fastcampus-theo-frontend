@@ -37,10 +37,8 @@ const ProductCard = (props) => {
 
         try {
             const dataCart = await axiosInstance.get(`/carts/?userId=${getUserStore.Id ?? 0}&productId=${id}`)
-            console.log(dataCart.data.length);
             if (dataCart.data.length > 0 ) {
                 dataCart.data[0].quantity += quantity
-                console.log(dataCart);
                 await axiosInstance.put(`/carts/${dataCart.data[0].id}`,dataCart.data[0])
             }else{
                 await axiosInstance.post("/carts",{

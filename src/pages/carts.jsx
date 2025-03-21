@@ -16,7 +16,7 @@ export const Carts = () => {
                         carts.data.map(
                             (cart,index) => (
                                 <div className="" key={index}>
-                                    <Cart imageUrl={cart.product.ImageUrl} title={cart.product.name} price={cart.product.price}/>
+                                    <Cart id={cart.id} imageUrl={cart.product.ImageUrl} title={cart.product.name} quantity={cart.quantity} price={cart.product.price}/>
                                 </div>
                             )
                         )

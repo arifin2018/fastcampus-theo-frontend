@@ -57,7 +57,6 @@ const Register = () =>{
             const {data} = await axiosInstance.get(`/users?Username=${Username}`)
             return data.length
         } catch (error) {
-            console.info("error checkUserAPI")
             console.log(error);
             return 0
         }

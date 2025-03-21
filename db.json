@@ -11,7 +11,7 @@
       "id": "3",
       "name": "Jacket",
       "price": 500000,
-      "stock": 4,
+      "stock": 2,
       "ImageUrl": "https://placehold.co/400/0000FF/FFFFFF?text=Jacket"
     },
     {
@@ -25,7 +25,7 @@
       "id": "5",
       "name": "Jeans",
       "price": 250000,
-      "stock": 10,
+      "stock": 0,
       "ImageUrl": "https://placehold.co/400/FF00FF/FFFFFF?text=Jeans"
     },
     {
@@ -150,28 +150,16 @@
   ],
   "carts": [
     {
-      "id": "7a93",
-      "userId": "b68a",
-      "productId": "3",
-      "quantity": 10
-    },
-    {
-      "id": "7a93",
-      "userId": "b68a",
-      "productId": "3",
-      "quantity": 9
-    },
-    {
       "id": "2b1d",
       "userId": "b68a",
       "productId": "7",
       "quantity": 3
     },
     {
-      "id": "bf3e",
+      "id": "ebac",
       "userId": "b68a",
-      "productId": "6",
-      "quantity": 1
+      "productId": "5",
+      "quantity": 10
     }
   ]
 }

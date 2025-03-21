@@ -115,9 +115,6 @@ const ProductManagementPage = () =>{
             searchParams.set("page", Number(searchParams.get("page")))
             setPage(Number(searchParams.get("page")))
         }
-        console.log(
-            "12"
-        );
         
     },[])
 
