@@ -39,7 +39,7 @@
       "id": "7",
       "name": "Socks",
       "price": 25000,
-      "stock": 22,
+      "stock": 4,
       "ImageUrl": "https://placehold.co/400/FFA500/FFFFFF?text=Socks"
     },
     {
@@ -153,7 +153,7 @@
       "id": "2b1d",
       "userId": "b68a",
       "productId": "7",
-      "quantity": 3
+      "quantity": 1
     },
     {
       "id": "ebac",

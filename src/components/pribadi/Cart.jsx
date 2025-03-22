@@ -4,17 +4,53 @@ import { IoIosAdd } from "react-icons/io";
 import { FcCheckmark } from "react-icons/fc";
 import { axiosInstance } from "@/lib/axios";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { useEffect } from "react";
 // import { useSelector } from "react-redux";
 
 export default function Cart(props) {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(props.quantity);
+    const [productStock, setProductStock] = useState(props.product.stock);
 
 
-    function increaseQuantity() {
-        setQuantity(quantity+1)
+    // useEffect(() => {
+    //     setProductStock(props.product.stock)
+    // },[props.product.stock]);
+    async function increaseQuantity() {
+        try {
+            let prevStock = setProductStock(prevStock => {
+                
+                if (prevStock <= 1 || prevStock == undefined) {
+                    return 0
+                }
+                
+                const newStock = prevStock - 1;
+                
+    
+                axiosInstance.patch(`/products/${props.productId}`, {
+                    "stock": newStock
+                });
+
+                return newStock
+            });
+            console.log(prevStock);
+            
+            if (prevStock <= 0 || prevStock == undefined) {
+                return 
+            }else{
+                axiosInstance.put(`/carts/${props.id}`,{
+                    "id": props.id,
+                    "userId": props.userId,
+                    "productId": props.productId,
+                    "quantity": quantity+1
+                })
+                setQuantity(quantity+1)
+            }
+            return 
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     function decreaseQuantity() {
@@ -39,7 +75,7 @@ export default function Cart(props) {
     return (
         <div className="flex">
             <div className="w-4/12 px-4">
-                <img src={props.imageUrl} alt={props.imageUrl} className="w-full" />
+                <img src={props.product.ImageUrl} alt={props.product.ImageUrl} className="w-full" />
             </div>
 
             <div className="flex flex-col justify-center w-full">
