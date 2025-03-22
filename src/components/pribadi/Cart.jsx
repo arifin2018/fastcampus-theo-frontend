@@ -4,11 +4,26 @@ import { IoIosAdd } from "react-icons/io";
 import { FcCheckmark } from "react-icons/fc";
 import { axiosInstance } from "@/lib/axios";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 // import { useEffect } from "react";
 // import { useSelector } from "react-redux";
 
 export default function Cart(props) {
     const dispatch = useDispatch();
+    const [quantity, setQuantity] = useState(props.quantity);
+
+
+    function increaseQuantity() {
+        setQuantity(quantity+1)
+    }
+
+    function decreaseQuantity() {
+        if (quantity >= 2) {
+            setQuantity(quantity-1)
+        }
+    }
+
+
     async function removeCart(){
         try {
             await axiosInstance.delete(`carts/${props.id}`)
@@ -20,11 +35,6 @@ export default function Cart(props) {
             alert(error)
         }
     }
-    // const cartSelector = useSelector(state => state.cart)
-
-    // useEffect(()=>{
-    //     console.log(cartSelector);
-    // },[])
 
     return (
         <div className="flex">
@@ -38,11 +48,11 @@ export default function Cart(props) {
                     <p className="font-bold">Rp. {props.price}</p>
                 </div>
                 <div className="flex justify-center gap-4">
-                    <Button variants="ghost" size="icon">
+                    <Button variants="ghost" size="icon" onClick={decreaseQuantity}>
                         <IoIosRemove />
                     </Button>
-                    <p className="flex items-center">{props.quantity}</p>
-                    <Button variants="ghost" size="icon">
+                    <p className="flex items-center">{quantity}</p>
+                    <Button variants="ghost" size="icon" onClick={increaseQuantity}>
                         <IoIosAdd />
                     </Button>
                 </div>
