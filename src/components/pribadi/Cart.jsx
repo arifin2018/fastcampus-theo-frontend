@@ -34,7 +34,6 @@ export default function Cart(props) {
 
                 return newStock
             });
-            console.log(prevStock);
             
             if (prevStock <= 0 || prevStock == undefined) {
                 return 
@@ -55,7 +54,30 @@ export default function Cart(props) {
 
     function decreaseQuantity() {
         if (quantity >= 2) {
-            setQuantity(quantity-1)
+            try {
+                
+                let prevStock = setProductStock(prevStock => {
+                    const newStock = prevStock + 1;
+                    
+        
+                    axiosInstance.patch(`/products/${props.productId}`, {
+                        "stock": newStock
+                    });
+    
+                    return newStock
+                });
+                axiosInstance.put(`/carts/${props.id}`,{
+                    "id": props.id,
+                    "userId": props.userId,
+                    "productId": props.productId,
+                    "quantity": quantity-1
+                })
+                setQuantity(quantity-1)
+                return prevStock
+            } catch (error) {
+                console.log(error);
+            }
+            
         }
     }
 

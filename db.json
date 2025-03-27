@@ -25,7 +25,7 @@
       "id": "5",
       "name": "Jeans",
       "price": 250000,
-      "stock": 0,
+      "stock": 6,
       "ImageUrl": "https://placehold.co/400/FF00FF/FFFFFF?text=Jeans"
     },
     {
@@ -39,7 +39,7 @@
       "id": "7",
       "name": "Socks",
       "price": 25000,
-      "stock": 4,
+      "stock": 1,
       "ImageUrl": "https://placehold.co/400/FFA500/FFFFFF?text=Socks"
     },
     {
@@ -159,7 +159,7 @@
       "id": "ebac",
       "userId": "b68a",
       "productId": "5",
-      "quantity": 10
+      "quantity": 1
     }
   ]
 }
